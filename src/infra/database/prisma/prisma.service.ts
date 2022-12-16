@@ -3,6 +3,11 @@ import { PrismaClient } from '@prisma/client';
 
 @Injectable()
 export class PrismaService extends PrismaClient implements OnModuleInit {
+  constructor() {
+    super({
+      log: ['query'],
+    });
+  }
   // starts connection when the application goes online
   async onModuleInit() {
     await this.$connect();
